@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Home(),
-    ),
-  );
+  runApp(const MaterialApp(debugShowCheckedModeBanner: false, home: Home()));
 }
 
 class Home extends StatelessWidget {
@@ -25,29 +20,46 @@ class Home extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            
-            const Text("1. Padding Widget:", style: TextStyle(fontWeight: FontWeight.bold)),
-            
+            const Text(
+              "1. Padding Widget:",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+
             // TODO 1: Implement a Padding widget
-            // - Replace the SizedBox below with a Padding widget.
-            // - Set the padding property to EdgeInsets.all(20).
-            // - Give it a child Text widget saying "I am inside a padding".
-            // - (Optional) Wrap the Text in a colored box so you can visually see the padding space.
-            const SizedBox(height: 50), 
-            
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              // Wrapped in a colored Container so you can visually see the padding space
+              child: Container(
+                color: Colors.yellow[300],
+                child: const Text("I am inside a padding"),
+              ),
+            ),
+
             const Divider(height: 40, thickness: 2),
 
-            const Text("2. Container Widget:", style: TextStyle(fontWeight: FontWeight.bold)),
+            const Text(
+              "2. Container Widget:",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
 
             // TODO 2: Implement a Container widget
-            // - Replace the SizedBox below with a Container.
-            // - Set the width to 200 and height to 100.
-            // - Add outside spacing by setting margin to EdgeInsets.all(20).
-            // - Add inside spacing by setting padding to EdgeInsets.all(10).
-            // - Add styling using the `decoration` property and a BoxDecoration (set color to Colors.blue and borderRadius to 10).
-            // - Give it a child Text widget saying 'Hello, Container!' with white text.
-            const SizedBox(height: 100),
-
+            Container(
+              width: 200,
+              height: 100,
+              margin: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              // Center widget added so the text is aligned nicely inside the container
+              child: const Center(
+                child: Text(
+                  'Hello, Container!',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
           ],
         ),
       ),
